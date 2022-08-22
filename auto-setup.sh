@@ -82,4 +82,5 @@ echo "INFO: And add the following line:"
 echo "INFO:       0 * * * * /opt/ipalert/run.sh"
 echo "INFO: Then save and exit (:wq)"
 echo "INFO: If you want to change the webhook, please run this script again."
+echo ""
 exit 0
