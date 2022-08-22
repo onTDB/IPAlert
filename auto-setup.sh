@@ -2,6 +2,23 @@
 
 echo "INFO: Starting IP Alert Setup"
 
+shopt -s lastpipe 
+shopt -so pipefail
+
+jq --version >/dev/null 2>&1
+jq_ok=$?
+
+[[ "$jq_ok" -eq 127 ]] && \
+    echo "ERROR: jq not installed" && exit 2
+[[ "$jq_ok" -ne 0 ]] && \
+    echo "ERROR: unknown error in jq" && exit 2
+
+curl --version >/dev/null 2>&1
+curl_ok=$?
+
+[[ "$curl_ok" -eq 127 ]] && \
+    echo "fatal: curl not installed" && exit 2
+
 while true; do
     read -p "Enter webhook: " webhook
     # check webhook includes "https://discord.com/api/webhooks/"
