@@ -1,1 +1,1 @@
-./discord.sh --webhook-url=$(cat /opt/webhook) --username "Server Name" --title "IP Alert" --description $(hostname -I) --timestamp
+./discord.sh --webhook-url=$(cat /opt/webhook) --username "Server Name" --title "IP Alert" --description $(curl https://ip.ontdb.com/) --timestamp
